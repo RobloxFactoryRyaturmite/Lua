@@ -7,19 +7,16 @@ game.ReplicatedStorage.OpenCrate.OnClientEvent:Connect(function(ID)
 		script.Parent.Visible = true
 		wait(0.5)
 
-		-- Shake effect
-		local shakeTime = 0.75  -- Total time to shake (in seconds)
-		local shakeIntensity = 40  -- Maximum rotation offset
+		local shakeTime = 0.75
+		local shakeIntensity = 40
 		local startTime = tick()
 
 		while tick() - startTime < shakeTime do
-			-- Generate random rotation offsets
 			local randomRotation = math.random(-shakeIntensity, shakeIntensity)
 			script.Parent.Rotation = randomRotation
 			wait(0.03) -- Adjust the frequency of shakes
 		end
 
-		-- Reset rotation after shaking
 		script.Parent.Rotation = 0
 
 		local chances = math.random(1, 100)
